@@ -6,6 +6,7 @@ def add_intercept(x):
 
 	if x.ndim == 1:
 		x = x.reshape(-1, 1)
+		print(x)
 
 	m, n = x.shape
 	ones = np.ones((m, 1))

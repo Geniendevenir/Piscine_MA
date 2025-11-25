@@ -59,19 +59,19 @@ print(f"D2 (np.stack(axis=0)):\n{D2}\n{D2.shape}\n")
 D2 = np.stack([ones, D1], axis=1)
 print(f"D2 (np.stack(axis=1)):\n{D2}\n{D2.shape}\n")
 
-#Create Randomness
+""" #Create Randomness
 #RGB pattern simulations 100x100 shape(100, 100, 3)
 rgvShape = (100, 100, 3)
-rgb = np.integer(0, 255, size=(rgvShape))
+rgb = np.random.randint(0, 255, size=(rgvShape))
 plt.imshow(rgb)
 plt.axis("off")
-plt.show()
+plt.show() """
 
 #Shuffle an Array
 
 #Choose a Random Element/Sample
 
-""" 
+
 #Remove a Dimension
 E3 = np.ones((1, 1, 5))
 E1 = np.squeeze(E3)											#np.Squeeze Version (removes all axis == 1)
@@ -93,4 +93,21 @@ F1 = F3.ravel()
 print(f"F1 (.ravel()):\n{F1}\n{F1.shape}\n")		#arr.ravel() Version
 
 
-#Get Values of the Dimension of an Array """
+print("EXTRACTING DATA")
+#Get Values of the Dimension of an Array
+A3 = np.arange(24).reshape(2, 3, 4)
+# shape = (2, 3, 4)
+# [[[0, 1, 2, 3]
+#   [4, 5, 6, 7]
+#   [8, 9, 10, 11]] 
+
+#  [[12, 13, 14, 15]
+#   [16, 17, 18, 19]
+#   [20, 21, 22, 23]]]
+
+A2 = A3[0]
+# shape = (3, 4)
+print(f"A2 (Slice Indexing Axis=0):\n{A2}\n{A2.shape}\n")	
+
+A2 = A3[:, 1]
+print(f"A2 (Slice Indexing Axis=1):\n{A2}\n{A2.shape}\n")
