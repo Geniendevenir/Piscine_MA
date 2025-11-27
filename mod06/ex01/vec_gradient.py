@@ -19,12 +19,9 @@ def gradient(x, y, theta):
 	X_prime = np.hstack((np.ones((m,1)), x))  # (m,2)
 	y_hat = X_prime @ theta  # shape (m, 1)
 
-	#Gradient
-	m = y.shape[0]
-	X_prime = np.hstack((np.ones(x.shape[0],1), x))
-	H_prime = np.hstack((np.ones(y_hat.shape[0],1), y_hat))
-
-	return (1 / m) * (X_prime.T * (H_prime - y))
+	error = y_hat - y
+	#gradient
+	return (1 / m) * (X_prime.T @ error)
 
 
 
@@ -33,12 +30,12 @@ y = np.array([37.4013816, 36.1473236, 45.7655287, 46.6793434, 59.5585554]).resha
 
 # Example 0:
 theta1 = np.array([2, 0.7]).reshape((-1, 1))
-gradient(x, y, theta1)
+print(repr(gradient(x, y, theta1)))
 # Output:
 #array([[-19.0342...], [-586.6687...]])
 
 # Example 1:
 theta2 = np.array([1, -0.4]).reshape((-1, 1))
-gradient(x, y, theta2)
+print(repr(gradient(x, y, theta2)))
 # Output:
 #array([[-57.8682...], [-2230.1229...]])
